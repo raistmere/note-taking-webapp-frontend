@@ -1,8 +1,9 @@
 import styles from "./Login.module.css";
 import {FormEvent} from "react";
-import {useNavigate} from "react-router";
+import {Link, useNavigate} from "react-router";
 
-// current password: 111eda61-9d3b-4936-bd93-05cc1e5d7e30
+// import images/icons
+import logo from "../../assets/images/logo.svg";
 
 function Login() {
 
@@ -59,17 +60,39 @@ function Login() {
 
 
     return (
-        <div>
-            <h1> Welcome to the Login Form!</h1>
-            <div>
-                <form className={styles.loginFormContainer} onSubmit={handleSubmit}>
-                    <label>Username</label>
-                    <input type={"text"} name={"username"} placeholder={"123name"} />
-                    <label>Password</label>
-                    <input type={"password"} name={"password"} placeholder={"password@example.com"} />
-                    <button type="submit">Login</button>
-                </form>
-                <br/>
+        <div className={styles.wrapper}>
+            <div className={styles.mainContainer}>
+                <div className={styles.logoContainer}>
+                    <img src={logo}/>
+                    <div className={styles.welcomeTextContainer}>
+                        <h1> Welcome to Note</h1>
+                        <p>Please log in to continue</p>
+                    </div>
+                </div>
+                <div className={styles.loginWrapper}>
+                    <form className={styles.formContainer} onSubmit={handleSubmit}>
+                        <label>Username</label>
+                        <input type={"text"} name={"username"} placeholder={"123name"} />
+                        <div className={styles.passwordContainer}>
+                            <div className={styles.labelContainer}>
+                                <label>Password</label>
+                                <Link to={"/forgotpassword"}>Forgot</Link>
+                            </div>
+                            <input type={"password"} name={"password"} />
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+                <div className={styles.oathContainer}>
+                    <hr/>
+                    <p>Or log in with:</p>
+                    <hr/>
+                </div>
+                <div className={styles.signUpContainer}>
+                    <p> No account yet? </p>
+                    <Link to="/signup">Sign Up</Link>
+                </div>
+                <hr/>
                 <button onClick={() => {navigate("/")}}>Back to home page</button>
             </div>
         </div>
