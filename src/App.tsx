@@ -1,8 +1,8 @@
 // import {useEffect} from 'react'
 import './App.css'
-import Login from "./components/login/Login.tsx";
+import Login from "./components/Login/Login.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Dashboard from "./components/dashboard/Dashboard.tsx";
+import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import Home from "./components/Home/Home.tsx";
 import Logout from "./components/Logout/Logout.tsx";
 
@@ -13,12 +13,12 @@ const router = createBrowserRouter([
     errorElement: <div>404: NOT FOUND</div>
   },
   {
-    path: "/dashboard",
+    path: "/Dashboard",
     element: <Dashboard />,
     errorElement: <div>404: NOT FOUND</div>
   },
   {
-    path: "/login",
+    path: "/Login",
     element: <Login />,
     errorElement: <div>404: NOT FOUND</div>
   },
