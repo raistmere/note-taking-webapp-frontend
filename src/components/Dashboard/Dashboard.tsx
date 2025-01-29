@@ -87,16 +87,21 @@ function Dashboard() {
 
         e.preventDefault();
 
-        console.log(e);
+        const formData = new FormData(e.currentTarget);
+
+        // TODO: Need validation for form data (check for null or invalid values) before creating note
 
         // create a new note
         const note: Note = {
 
             id: null,
             userId: null,
-            title: "My Frontend Note",
-            note: "This is the new frontend note that was created."
+            title: formData.get("title") as string,
+            note: formData.get("note") as string
         }
+
+        console.log(note);
+
 
         const response = await fetch("http://localhost:8080/createnote",{
             method: "POST",
@@ -108,6 +113,9 @@ function Dashboard() {
         })
 
         console.log(response);
+
+        getDashboardData();
+        changeView(View.NOTE_LIST);
     }
 
     const changeView = (view: View) => {
@@ -124,7 +132,7 @@ function Dashboard() {
             case View.NOTE_DETAIL:
                 return <NoteDetail note={currentNote} changeView={changeView}/>
             case View.NOTE_CREATE:
-                return <NoteCreate />
+                return <NoteCreate changeView={changeView} createNote={createNote}/>
             default:
                 return <><p>ERROR: NO DISPLAY</p></>
         }
