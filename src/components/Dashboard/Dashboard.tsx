@@ -12,12 +12,14 @@ import searchIcon from "../../assets/images/icon-search.svg";
 import archiveIcon from "../../assets/images/icon-archive.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
 import settingsIcon from "../../assets/images/icon-settings.svg";
+import NoteEdit from "../NoteEdit/NoteEdit.tsx";
 
 
 export enum View {
     NOTE_LIST,
     NOTE_DETAIL,
-    NOTE_CREATE
+    NOTE_CREATE,
+    NOTE_EDIT,
 }
 
 export interface Note {
@@ -88,6 +90,11 @@ function Dashboard() {
         changeView(View.NOTE_CREATE);
     }
 
+    const viewEditNote = () => {
+
+        changeView(View.NOTE_EDIT);
+    }
+
 
     const changeView = (view: View) => {
 
@@ -107,10 +114,17 @@ function Dashboard() {
 
                 if(currentNote.id == null) Error(`ERROR: CURRENT NOTE ID IS NULL. CAN'T CALL NOTE_DETAIL VIEW WITHOUT ID`);
 
-                return <NoteDetail note={currentNote} viewList={viewNoteList} deleteNote={deleteNote}/>
+                return <NoteDetail note={currentNote} viewList={viewNoteList} deleteNote={deleteNote} viewEdit={viewEditNote}/>
             case View.NOTE_CREATE:
 
                 return <NoteCreate viewList={viewNoteList} createNote={createNote}/>
+            case View.NOTE_EDIT:
+
+                if(!currentNote) throw new Error(`ERROR: CURRENT NOTE IS NULL/UNDEFINED. CAN'T CALL NOTE_DETAIL VIEW`);
+
+                if(currentNote.id == null) throw new Error(`ERROR: CURRENT NOTE ID IS NULL. CAN'T CALL NOTE_DETAIL VIEW WITHOUT ID`);
+
+                return <NoteEdit note={currentNote} viewList={viewNoteList} editNote={editNote} />
             default:
 
                 throw new Error(`ERROR: NO VIEW DISPLAY SELECTED`);
@@ -148,7 +162,7 @@ function Dashboard() {
 
         console.log(response);
 
-        getDashboardData();
+        await getDashboardData();
         changeView(View.NOTE_LIST);
     }
 
@@ -167,7 +181,41 @@ function Dashboard() {
         })
 
         console.log(response);
-        getDashboardData();
+        await getDashboardData();
+        changeView(View.NOTE_LIST);
+    }
+
+    const editNote = async (e: FormEvent<HTMLFormElement>) => {
+
+        e.preventDefault();
+
+        console.log("Applying Edit to note...")
+
+        const formData = new FormData(e.currentTarget);
+
+        // create a new note
+        const note: Note = {
+
+            id: (currentNote != undefined ? currentNote.id : null),
+            userId: null,
+            title: formData.get("title") as string,
+            note: formData.get("note") as string
+        }
+
+        console.log(note);
+
+        const response = await fetch("http://localhost:8080/editnote",{
+            method: "POST",
+            credentials:"include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(note),
+        })
+
+        console.log(response);
+
+        await getDashboardData();
         changeView(View.NOTE_LIST);
     }
 

@@ -11,6 +11,7 @@ type Props = {
     note: Note;
     viewList: () => void;
     deleteNote: () => void;
+    viewEdit: () => void;
 }
 
 const NoteDetail = (props: Props) => {
@@ -26,7 +27,7 @@ const NoteDetail = (props: Props) => {
                         <p>Go Back</p>
                     </button>
                     <div className={styles.buttonContainer}>
-                        <button onClick={()=> props.deleteNote()}>
+                        <button type={"button"} onClick={()=> props.deleteNote()}>
                             <img src={trashIcon} alt="Trash delete icon button"/>
                         </button>
                         <button>
@@ -35,8 +36,8 @@ const NoteDetail = (props: Props) => {
                         <button>
                             Cancel
                         </button>
-                        <button className={styles.saveButton}>
-                            Save Note
+                        <button type={"button"} className={styles.saveButton} onClick={props.viewEdit}>
+                            Edit Note
                         </button>
                     </div>
                 </div>
