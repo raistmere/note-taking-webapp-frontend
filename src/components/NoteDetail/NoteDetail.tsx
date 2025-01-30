@@ -1,6 +1,5 @@
 import styles from "../Dashboard/Dashboard.module.css";
-import {Note, View} from "../Dashboard/Dashboard";
-import {Link} from "react-router";
+import { Note } from "../Dashboard/Dashboard";
 
 import archiveIcon from "../../assets/images/icon-archive.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
@@ -9,8 +8,9 @@ import trashIcon from "../../assets/images/icon-delete.svg";
 import timeIcon from "../../assets/images/icon-clock.svg";
 
 type Props = {
-    note: Note | undefined;
-    changeView: (view: View) => void;
+    note: Note;
+    viewList: () => void;
+    deleteNote: () => void;
 }
 
 const NoteDetail = (props: Props) => {
@@ -21,13 +21,12 @@ const NoteDetail = (props: Props) => {
             <div className={styles.noteDetailContainer}>
                 {/* Header container for note detail container*/}
                 <div className={styles.headerContainer}>
-                    <Link to={"/dashboard"} className={styles.backLinkContainer}
-                          onClick={() => props.changeView(View.NOTE_LIST)}>
+                    <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
                         <img src={leftArrowIcon} alt="Left arrow icon"/>
                         <p>Go Back</p>
-                    </Link>
+                    </button>
                     <div className={styles.buttonContainer}>
-                        <button>
+                        <button onClick={()=> props.deleteNote()}>
                             <img src={trashIcon} alt="Trash delete icon button"/>
                         </button>
                         <button>

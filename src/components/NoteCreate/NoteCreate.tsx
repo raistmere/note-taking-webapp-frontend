@@ -1,6 +1,4 @@
 import styles from "../Dashboard/Dashboard.module.css";
-import { Link } from "react-router";
-import { View } from "../Dashboard/Dashboard.tsx";
 
 import leftArrowIcon from "../../assets/images/icon-arrow-left.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
@@ -8,7 +6,7 @@ import timeIcon from "../../assets/images/icon-clock.svg";
 import {FormEvent} from "react";
 
 type Props = {
-    changeView: (view: View) => void;
+    viewList: () => void;
     createNote: (e: FormEvent<HTMLFormElement>) => void;
 }
 
@@ -20,11 +18,10 @@ const NoteCreate = (props: Props) => {
             <form className={styles.noteDetailContainer} onSubmit={ props.createNote }>
                 {/* Header container for form */}
                 <div className={styles.headerContainer}>
-                    <Link to={"/dashboard"} className={styles.backLinkContainer}
-                          onClick={() => props.changeView(View.NOTE_LIST)}>
+                    <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
                         <img src={leftArrowIcon} alt="Left arrow icon"/>
                         <p>Go Back</p>
-                    </Link>
+                    </button>
                     <div className={styles.buttonContainer}>
                         <button>
                             Cancel

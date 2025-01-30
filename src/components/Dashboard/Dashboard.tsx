@@ -72,6 +72,11 @@ function Dashboard() {
         }
     };
 
+    const viewNoteList = () => {
+
+        changeView(View.NOTE_LIST);
+    }
+
     const viewNoteDetail = (noteID: number | null) => {
 
         setCurrentNote(notes.find((note: Note) => note.id === noteID));
@@ -81,6 +86,35 @@ function Dashboard() {
     const viewCreateNote = () => {
 
         changeView(View.NOTE_CREATE);
+    }
+
+
+    const changeView = (view: View) => {
+
+        setView(view);
+    }
+
+    const displayContentView = () => {
+
+        switch (view) {
+
+            case View.NOTE_LIST:
+
+                return <NoteList noteList={notes} viewDetail={viewNoteDetail}/>
+            case View.NOTE_DETAIL:
+
+                if(!currentNote) throw new Error(`ERROR: CURRENT NOTE IS NULL/UNDEFINED. CAN'T CALL NOTE_DETAIL VIEW`);
+
+                if(currentNote.id == null) Error(`ERROR: CURRENT NOTE ID IS NULL. CAN'T CALL NOTE_DETAIL VIEW WITHOUT ID`);
+
+                return <NoteDetail note={currentNote} viewList={viewNoteList} deleteNote={deleteNote}/>
+            case View.NOTE_CREATE:
+
+                return <NoteCreate viewList={viewNoteList} createNote={createNote}/>
+            default:
+
+                throw new Error(`ERROR: NO VIEW DISPLAY SELECTED`);
+        }
     }
 
     const createNote = async (e: FormEvent<HTMLFormElement>) => {
@@ -118,25 +152,25 @@ function Dashboard() {
         changeView(View.NOTE_LIST);
     }
 
-    const changeView = (view: View) => {
+    const deleteNote = async () => {
 
-        setView(view);
+        console.log("Deleting note...")
+
+        const response = await fetch("http://localhost:8080/deletenote",{
+
+            method: "POST",
+            credentials:"include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(currentNote),
+        })
+
+        console.log(response);
+        getDashboardData();
+        changeView(View.NOTE_LIST);
     }
 
-    const displayContentView = () => {
-
-        switch (view) {
-
-            case View.NOTE_LIST:
-                return <NoteList noteList={notes} viewDetail={viewNoteDetail}/>
-            case View.NOTE_DETAIL:
-                return <NoteDetail note={currentNote} changeView={changeView}/>
-            case View.NOTE_CREATE:
-                return <NoteCreate changeView={changeView} createNote={createNote}/>
-            default:
-                return <><p>ERROR: NO DISPLAY</p></>
-        }
-    }
 
     return (
         <div className={styles.wrapper}>
