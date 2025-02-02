@@ -1,9 +1,9 @@
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "../NoteCreate/NoteCreate.module.css";
 
 import leftArrowIcon from "../../assets/images/icon-arrow-left.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
 import timeIcon from "../../assets/images/icon-clock.svg";
-import {FormEvent} from "react";
+import { FormEvent } from "react";
 
 type Props = {
     viewList: () => void;
@@ -13,9 +13,9 @@ type Props = {
 const NoteCreate = (props: Props) => {
 
     return (
-        <>
+        <div className={styles.noteCreateContainer}>
             {/* FORM CONTAINER   */}
-            <form className={styles.noteDetailContainer} onSubmit={ props.createNote }>
+            <form className={styles.formContainer} onSubmit={ props.createNote }>
                 {/* Header container for form */}
                 <div className={styles.headerContainer}>
                     <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
@@ -44,19 +44,19 @@ const NoteCreate = (props: Props) => {
                             </div>
                         </div>
                         <div className={styles.timestampContainer}>
-                            <div className={styles.titleContainer}>
+                            <div>
                                 <img src={timeIcon} />
                                 <p>Last Edited</p>
                             </div>
-                            <p>Note yet saved</p>
+                            <p>(WIP)</p>
                         </div>
                     </div>
                     <div className={styles.textContainer}>
-                        <input type="text" name="note" placeholder="Start typing your note here..." />
+                        <textarea name="note" placeholder="Start typing your note here..." />
                     </div>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

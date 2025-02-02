@@ -1,32 +1,30 @@
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "./NoteEdit.module.css";
 
 import leftArrowIcon from "../../assets/images/icon-arrow-left.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
 import timeIcon from "../../assets/images/icon-clock.svg";
-import {FormEvent} from "react";
-import { Note } from "../Dashboard/Dashboard.tsx";
+import { FormEvent } from "react";
+import { Note, View } from "../Dashboard/Dashboard.tsx";
 
 type Props = {
     note: Note;
     viewList: () => void;
+    changeView: (view: View) => void;
     editNote: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const NoteEdit = (props: Props) => {
 
     return (
-        <>
+        <div className={styles.noteEditWrapper}>
             {/* FORM CONTAINER   */}
-            <form className={styles.noteDetailContainer} onSubmit={ props.editNote }>
+            <form className={styles.noteEditContainer} onSubmit={ props.editNote }>
                 {/* Header container for form */}
                 <div className={styles.headerContainer}>
-                    <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
-                        <img src={leftArrowIcon} alt="Left arrow icon"/>
-                        <p>Go Back</p>
-                    </button>
                     <div className={styles.buttonContainer}>
-                        <button>
-                            Cancel
+                        <button type={"button"} className={styles.cancelContainer} onClick={() => props.changeView(View.NOTE_DETAIL)}>
+                            <img src={leftArrowIcon} alt="Left arrow icon"/>
+                            <p>Cancel</p>
                         </button>
                         <button type={"submit"} className={styles.saveButton}>
                             Apply Edit
@@ -50,15 +48,15 @@ const NoteEdit = (props: Props) => {
                                 <img src={timeIcon} />
                                 <p>Last Edited</p>
                             </div>
-                            <p>Note yet saved</p>
+                            <p>(WIP)</p>
                         </div>
                     </div>
                     <div className={styles.textContainer}>
-                        <input type="text" name="note" defaultValue={props.note.note} />
+                        <textarea name="note" defaultValue={props.note.note} />
                     </div>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

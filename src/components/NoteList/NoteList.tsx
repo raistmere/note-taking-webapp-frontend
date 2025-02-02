@@ -1,4 +1,4 @@
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "../NoteList/NoteList.module.css";
 import { Note } from "../Dashboard/Dashboard";
 
 type Props = {
@@ -9,11 +9,11 @@ type Props = {
 const NoteList = (props: Props) => {
 
     return (
-        <>
+        <div className={styles.noteListContainer}>
             {/* Content header - this can be turned into a component if need be*/}
-            <h3>All Notes</h3>
+            <h2>ALL NOTES</h2>
             {/* Note List Container - this will turn into its own component if need be.*/}
-            <ul className={styles.noteListContainer}>
+            <ul className={styles.listWrapper}>
                 {props.noteList.map((note: Note) => (
                     <li key={note.id} className={styles.noteContainer}
                         onClick={() => props.viewDetail(note.id)}>
@@ -27,7 +27,7 @@ const NoteList = (props: Props) => {
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     )
 }
 

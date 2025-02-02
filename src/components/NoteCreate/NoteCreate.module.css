@@ -1,0 +1,195 @@
+.noteCreateContainer {
+
+    width: 100dvw;
+    height: 100dvh;
+    grid-row: 2/3;
+    padding: 1.25rem 1rem 1rem 1rem;
+
+    > .formContainer {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        > .headerContainer {
+
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.75rem;
+
+            > .backLinkContainer {
+
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                text-decoration: none;
+                color: black;
+                border-style: none;
+                background-color: transparent;
+            }
+
+            > .buttonContainer {
+
+                display: flex;
+                gap: 1rem;
+
+                > button {
+
+                    border-style: none;
+                    background-color: transparent;
+                }
+
+                > .saveButton {
+
+                    color: rgb(50, 100, 250);
+                }
+            }
+
+        }
+
+        > .contentContainer {
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            > .headerContainer {
+
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+                > input {
+
+                    border-style: none;
+                    padding: 0.5rem 0.5rem 0.5rem 0;
+                    font-size: 1.25rem;
+
+                    &::placeholder {
+
+                        color: black;
+                        font-weight: bold;
+                    }
+
+                    &:focus {
+
+                        padding: 0.5rem;
+                        border-left-style: solid;
+                        border-left-color: rgb(50, 100, 250);
+                        border-left-width: 0.125rem;
+                        outline-color: transparent;
+
+                        &::placeholder {
+
+                            color: transparent;
+                        }
+                    }
+                }
+
+
+
+                > .tagContainer {
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.25rem 0 0.25rem 0;
+                    margin-top: 0.75rem;
+                    font-size: 0.75rem;
+
+                    > .titleContainer {
+
+                        width: 115px;
+                        height: 24px;
+                        display: flex;
+                        gap: 0.375rem;
+
+                        > img {
+
+                            width: 12px;
+                            height: 12px;
+                            align-self: center;
+                        }
+
+                        > p {
+
+                            align-self: center;
+                        }
+                    }
+
+                    > .listContainer {
+
+                        display: flex;
+                        flex: 2;
+                    }
+                }
+
+                > .timestampContainer {
+
+                    display: flex;
+                    padding: 0.25rem 0 0.25rem 0;
+                    font-size: 0.75rem;
+
+                    >:first-child {
+
+                        width: 115px;
+                        height: 24px;
+                        display: flex;
+                        gap: 0.375rem;
+
+                        > img {
+
+                            width: 12px;
+                            height: 12px;
+                            align-self: center;
+                        }
+
+                        > p {
+
+                            align-self: center;
+                        }
+                    }
+
+                    > p {
+
+                        align-self: center;
+                    }
+                }
+            }
+
+            > .textContainer {
+
+                width: 100%;
+                height: 100%;
+
+                > textarea {
+
+                    width: 100%;
+                    height: 100%;
+                    border-style: none;
+                    background-color: transparent;
+
+                    &:focus {
+
+                        padding: 0.5rem;
+                        border-left-style: solid;
+                        border-left-color: rgb(50, 100, 250);
+                        border-left-width: 0.125rem;
+                        outline-color: transparent;
+
+                        &::placeholder {
+
+                            color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

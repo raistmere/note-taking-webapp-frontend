@@ -1,4 +1,4 @@
-import styles from "../Dashboard/Dashboard.module.css";
+import styles from "./NoteDetail.module.css";
 import { Note } from "../Dashboard/Dashboard";
 
 import archiveIcon from "../../assets/images/icon-archive.svg";
@@ -17,7 +17,7 @@ type Props = {
 const NoteDetail = (props: Props) => {
 
     return (
-        <>
+        <div className={styles.noteDetailWrapper}>
             {/* Note Detail Container   */}
             <div className={styles.noteDetailContainer}>
                 {/* Header container for note detail container*/}
@@ -32,9 +32,6 @@ const NoteDetail = (props: Props) => {
                         </button>
                         <button>
                             <img src={archiveIcon} alt="Archive icon button"/>
-                        </button>
-                        <button>
-                            Cancel
                         </button>
                         <button type={"button"} className={styles.saveButton} onClick={props.viewEdit}>
                             Edit Note
@@ -79,7 +76,7 @@ const NoteDetail = (props: Props) => {
                         "ERROR: CURRENT NOTE IS NULL"}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

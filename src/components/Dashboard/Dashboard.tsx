@@ -124,7 +124,7 @@ function Dashboard() {
 
                 if(currentNote.id == null) throw new Error(`ERROR: CURRENT NOTE ID IS NULL. CAN'T CALL NOTE_DETAIL VIEW WITHOUT ID`);
 
-                return <NoteEdit note={currentNote} viewList={viewNoteList} editNote={editNote} />
+                return <NoteEdit note={currentNote} viewList={viewNoteList} changeView={changeView} editNote={editNote} />
             default:
 
                 throw new Error(`ERROR: NO VIEW DISPLAY SELECTED`);
@@ -236,17 +236,19 @@ function Dashboard() {
                 {displayContentView()}
             </div>
 
+            {/* CREATE NOTE BUTTON */}
+            {view == View.NOTE_LIST &&
+                <div className={styles.createButtonContainer} onClick={() => viewCreateNote()}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 5a.75.75 0 0 1 .75.75V11H18a.75.75 0 0 1 0 1.5h-5.25v5.25a.75.75 0 0 1-1.5 0V12.5H6A.75.75 0 0 1 6 11h5.25V5.75A.75.75 0 0 1 12 5Z"/>
+                    </svg>
+                </div>
+            }
+
             {/* FOOTER */}
             {/* footer (mobile menu bar) - should be its own component.*/}
             <div className={styles.footerContainer}>
-                {view != View.NOTE_CREATE &&
-                    <div className={styles.createButtonContainer} onClick={() => viewCreateNote()}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12 5a.75.75 0 0 1 .75.75V11H18a.75.75 0 0 1 0 1.5h-5.25v5.25a.75.75 0 0 1-1.5 0V12.5H6A.75.75 0 0 1 6 11h5.25V5.75A.75.75 0 0 1 12 5Z"/>
-                        </svg>
-                    </div>
-                }
                 <div className={styles.menuBarContainer}>
                     <Link to={"/Dashboard"} onClick={() => setView(View.NOTE_LIST)}>
                         <img src={homeIcon} alt="home icon"/>
