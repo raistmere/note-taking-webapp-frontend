@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import Home from "./components/Home/Home.tsx";
 import Logout from "./components/Logout/Logout.tsx";
+import Signup from "./components/Signup/Signup.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,13 +14,18 @@ const router = createBrowserRouter([
     errorElement: <div>404: NOT FOUND</div>
   },
   {
-    path: "/Dashboard",
+    path: "/dashboard",
     element: <Dashboard />,
     errorElement: <div>404: NOT FOUND</div>
   },
   {
-    path: "/Login",
+    path: "/login",
     element: <Login />,
+    errorElement: <div>404: NOT FOUND</div>
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
     errorElement: <div>404: NOT FOUND</div>
   },
   {
