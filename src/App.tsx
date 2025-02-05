@@ -1,7 +1,9 @@
 // import {useEffect} from 'react'
 import './App.css'
-import Login from "./components/Login/Login.tsx";
+
 import { createBrowserRouter, RouterProvider } from "react-router";
+
+import Login from "./components/Login/Login.tsx";
 import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import Home from "./components/Home/Home.tsx";
 import Logout from "./components/Logout/Logout.tsx";

@@ -3,7 +3,9 @@ import {FormEvent} from "react";
 import {Link, useNavigate} from "react-router";
 
 // import images/icons
-import logo from "../../assets/images/logo.svg";
+import logoIcon from "../../assets/images/logo.svg";
+import showIcon from "../../assets/images/icon-show-password.svg";
+import infoIcon from "../../assets/images/icon-info.svg";
 
 function Login() {
 
@@ -16,7 +18,7 @@ function Login() {
         const formData = new FormData(e.currentTarget);
 
         const data = new URLSearchParams();
-        data.append("username", formData.get("username") as string);
+        data.append("username", formData.get("email") as string);
         data.append("password", formData.get("password") as string);
 
         console.log(data.get("username"));
@@ -63,37 +65,32 @@ function Login() {
         <div className={styles.wrapper}>
             <div className={styles.mainContainer}>
                 <div className={styles.logoContainer}>
-                    <img src={logo}/>
+                    <img src={logoIcon}/>
                     <div className={styles.welcomeTextContainer}>
-                        <h1> Welcome to Note</h1>
+                        <h1>Welcome to Note</h1>
                         <p>Please log in to continue</p>
                     </div>
                 </div>
                 <div className={styles.loginWrapper}>
                     <form className={styles.formContainer} onSubmit={handleSubmit}>
-                        <label>Username</label>
-                        <input type={"text"} name={"username"} placeholder={"123name"} />
-                        <div className={styles.passwordContainer}>
-                            <div className={styles.labelContainer}>
-                                <label>Password</label>
-                                <Link to={"/forgotpassword"}>Forgot</Link>
+                        <div className={styles.inputContainer}>
+                            <label>Email Address</label>
+                            <input type={"text"} name={"email"} placeholder={"email@example.com"} />
+                        </div>
+                        <div className={styles.inputContainer}>
+                            <label>Password</label>
+                            <div className={styles.passwordContainer}>
+                                <input type={"password"} name={"password"} />
+                                <img src={showIcon}/>
                             </div>
-                            <input type={"password"} name={"password"} />
                         </div>
                         <button type="submit">Login</button>
                     </form>
                 </div>
-                <div className={styles.oathContainer}>
-                    <hr/>
-                    <p>Or log in with:</p>
-                    <hr/>
+                <div className={styles.loginContainer}>
+                    <hr />
+                    <p> No account yet? <Link to="/signup">Sign Up</Link> </p>
                 </div>
-                <div className={styles.signUpContainer}>
-                    <p> No account yet? </p>
-                    <Link to="/signup">Sign Up</Link>
-                </div>
-                <hr/>
-                <button onClick={() => {navigate("/")}}>Back to home page</button>
             </div>
         </div>
     )

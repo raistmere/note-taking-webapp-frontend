@@ -1,42 +1,241 @@
-/*#root {*/
-/*  max-width: 1280px;*/
-/*  margin: 0 auto;*/
-/*  padding: 2rem;*/
-/*  text-align: center;*/
-/*}*/
+:root {
 
-/*.logo {*/
-/*  height: 6em;*/
-/*  padding: 1.5em;*/
-/*  will-change: filter;*/
-/*  transition: filter 300ms;*/
-/*}*/
-/*.logo:hover {*/
-/*  filter: drop-shadow(0 0 2em #646cffaa);*/
-/*}*/
-/*.logo.react:hover {*/
-/*  filter: drop-shadow(0 0 2em #61dafbaa);*/
-/*}*/
+    /* || Color || */
 
-/*@keyframes logo-spin {*/
-/*  from {*/
-/*    transform: rotate(0deg);*/
-/*  }*/
-/*  to {*/
-/*    transform: rotate(360deg);*/
-/*  }*/
-/*}*/
+    /* neutral colors */
+    --color-neutral-950: #0E121B;
+    --color-neutral-900: #191B25;
+    --color-neutral-800: #232530;
+    --color-neutral-700: #2B303B;
+    --color-neutral-600: #525866;
+    --color-neutral-500: #717784;
+    --color-neutral-400: #99A0AE;
+    --color-neutral-300: #CACFD8;
+    --color-neutral-200: #E0E4EA;
+    --color-neutral-100: #F3F5F8;
+    --color-neutral-50: #F5F7FA;
+    --color-neutral-0: #FFFFFF;
 
-/*@media (prefers-reduced-motion: no-preference) {*/
-/*  a:nth-of-type(2) .logo {*/
-/*    animation: logo-spin infinite 20s linear;*/
-/*  }*/
-/*}*/
+    /* blue colors */
+    --color-blue-700: #2547D0;
+    --color-blue-500: #335CFF;
+    --color-blue-50: #EBF1FF;
 
-/*.card {*/
-/*  padding: 2em;*/
-/*}*/
+    /* green colors */
+    --color-green-500: #21C16B;
+    --color-green-100: #D1FBE9;
 
-/*.read-the-docs {*/
-/*  color: #888;*/
-/*}*/
+    /* red colors */
+    --color-red-500: #FB3748;
+    --color-red-100: #FFD5D8;
+
+    /* … */
+
+    /* || Typography || */
+
+    /* sans-serif */
+    .sans-serif-1 {
+
+        font-family: inter-bold, serif;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .sans-serif-2 {
+
+        font-family: inter-bold, sans-serif;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .sans-serif-3 {
+
+        font-family: inter-semibold, sans-serif;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.3px;
+    }
+    .sans-serif-4 {
+
+        font-family: inter-med, sans-serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .sans-serif-5 {
+
+        font-family: inter-reg, sans-serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .sans-serif-6 {
+
+        font-family: inter-reg, sans-serif;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+
+    /* Serif */
+    .serif-1 {
+
+        font-family: noto-serif-bold, serif;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .serif-2 {
+
+        font-family: noto-serif-bold, serif;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .serif-3 {
+
+        font-family: noto-serif-semibold, serif;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.3px;
+    }
+    .serif-4 {
+
+        font-family: noto-serif-med, serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .serif-5 {
+
+        font-family: noto-serif-reg, serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .serif-6 {
+
+        font-family: noto-serif-reg, serif;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+
+    /* Source Code Pro */
+    .source-code-1 {
+
+        font-family: source-code-pro-bold, serif;
+        font-size: 24px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .source-code-2 {
+
+        font-family: source-code-pro-bold, serif;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+    }
+    .source-code-3 {
+
+        font-family: source-code-pro-semibold, serif;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.3px;
+    }
+    .source-code-4 {
+
+        font-family: source-code-pro-med, serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .source-code-5 {
+
+        font-family: source-code-pro-reg, serif;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+    .source-code-6 {
+
+        font-family: source-code-pro-reg, serif;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: -0.2px;
+    }
+
+
+    /* … */
+
+    /* || */
+
+    /* … */
+}
+
+
+/* || Font Family || */
+@font-face {
+
+    font-family: inter-reg;
+    src: url('src/assets/fonts/inter/static/Inter_18pt-Regular.ttf');
+}
+
+@font-face {
+
+    font-family: inter-bold;
+    src: url('src/assets/fonts/inter/static/Inter_18pt-Bold.ttf');
+}
+@font-face {
+
+    font-family: inter-semibold;
+    src: url('src/assets/fonts/inter/static/Inter_18pt-SemiBold.ttf');
+}
+@font-face {
+
+    font-family: inter-med;
+    src: url('src/assets/fonts/inter/static/Inter_18pt-Medium.ttf');
+}
+@font-face {
+
+    font-family: noto-serif-reg;
+    src: url("src/assets/fonts/noto-serif/static/NotoSerif-Regular.ttf")
+}
+
+@font-face {
+    
+    font-family: noto-serif-bold;
+    src: url("src/assets/fonts/noto-serif/static/NotoSerif-Bold.ttf")
+}
+
+@font-face {
+
+    font-family: noto-serif-med;
+    src: url("src/assets/fonts/noto-serif/static/NotoSerif-Medium.ttf")
+}
+
+@font-face {
+
+    font-family: noto-serif-semi;
+    src: url("src/assets/fonts/noto-serif/static/NotoSerif-SemiBold.ttf")
+}
+@font-face {
+
+    font-family: source-code-pro-reg;
+    src: url('src/assets/fonts/source-code-pro/static/SourceCodePro-Regular.ttf')
+}
+@font-face {
+
+    font-family: source-code-pro-med;
+    src: url('src/assets/fonts/source-code-pro/static/SourceCodePro-Medium.ttf')
+}
+@font-face {
+
+    font-family: source-code-pro-semibold;
+    src: url('src/assets/fonts/source-code-pro/static/SourceCodePro-SemiBold.ttf')
+}
+@font-face {
+
+    font-family: source-code-pro-bold;
+    src: url('src/assets/fonts/source-code-pro/static/SourceCodePro-Bold.ttf')
+}
