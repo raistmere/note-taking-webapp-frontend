@@ -24,7 +24,7 @@ const NoteDetail = (props: Props) => {
                 <div className={styles.headerContainer}>
                     <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
                         <img src={leftArrowIcon} alt="Left arrow icon"/>
-                        <p>Go Back</p>
+                        <p className={`sans-serif-5`}>Go Back</p>
                     </button>
                     <div className={styles.buttonContainer}>
                         <button type={"button"} onClick={()=> props.deleteNote()}>
@@ -33,7 +33,7 @@ const NoteDetail = (props: Props) => {
                         <button>
                             <img src={archiveIcon} alt="Archive icon button"/>
                         </button>
-                        <button type={"button"} className={styles.saveButton} onClick={props.viewEdit}>
+                        <button type={"button"} className={`${styles.saveButton} sans-serif-5`} onClick={props.viewEdit}>
                             Edit Note
                         </button>
                     </div>
@@ -44,30 +44,32 @@ const NoteDetail = (props: Props) => {
                         // display note details
                         (<>
                             <div className={styles.headerContainer}>
-                                <h3 className={styles.noteTitle}>
+                                <h2 className={`${styles.noteTitle} sans-serif-1`}>
                                     {props.note.title}
-                                </h3>
+                                </h2>
                                 <div className={styles.tagContainer}>
                                     <div className={styles.titleContainer}>
                                         <img src={tagIcon} alt="tag icon"/>
-                                        <p>Tags</p>
+                                        <p className={`sans-serif-6`}>Tags</p>
                                     </div>
                                     <div className={styles.listContainer}>
-                                        <p>Dev, React</p>
+                                        <p className={`sans-serif-6`}>Dev, React</p>
                                     </div>
                                 </div>
                                 <div className={styles.timestampContainer}>
                                     <div className={styles.titleContainer}>
                                         <img src={timeIcon} />
-                                        <p>Last Edited</p>
+                                        <p className={`sans-serif-6`}>Last Edited</p>
                                     </div>
-                                    <p>
+                                    <p className={`sans-serif-6`}>
                                         29 Oct 2024
                                     </p>
                                 </div>
                             </div>
                             <div className={styles.textContainer}>
-                                {props.note.note}
+                                <p className={`sans-serif-5`}>
+                                    {props.note.note}
+                                </p>
                             </div>
                         </>)
 

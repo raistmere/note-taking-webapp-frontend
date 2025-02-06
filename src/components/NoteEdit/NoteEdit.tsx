@@ -17,42 +17,40 @@ const NoteEdit = (props: Props) => {
 
     return (
         <div className={styles.noteEditWrapper}>
-            {/* FORM CONTAINER   */}
             <form className={styles.noteEditContainer} onSubmit={ props.editNote }>
-                {/* Header container for form */}
                 <div className={styles.headerContainer}>
                     <div className={styles.buttonContainer}>
                         <button type={"button"} className={styles.cancelContainer} onClick={() => props.changeView(View.NOTE_DETAIL)}>
                             <img src={leftArrowIcon} alt="Left arrow icon"/>
-                            <p>Cancel</p>
+                            <p className={`sans-serif-5`}>Cancel</p>
                         </button>
-                        <button type={"submit"} className={styles.saveButton}>
+                        <button type={"submit"} className={`${styles.saveButton} sans-serif-5`}>
                             Apply Edit
                         </button>
                     </div>
                 </div>
                 <div className={styles.contentContainer}>
                     <div className={styles.headerContainer}>
-                        <input type="text" name="title" className={styles.noteTitle} defaultValue={props.note.title} />
+                        <textarea name="title" className={`${styles.noteTitle} sans-serif-1`} defaultValue={props.note.title} />
                         <div className={styles.tagContainer}>
                             <div className={styles.titleContainer}>
                                 <img src={tagIcon} alt="tag icon" />
-                                <p>Tags</p>
+                                <p className={`sans-serif-6`}>Tags</p>
                             </div>
                             <div className={styles.listContainer}>
-                                <p>(disabled)</p>
+                                <p className={`sans-serif-6`}>(disabled)</p>
                             </div>
                         </div>
                         <div className={styles.timestampContainer}>
                             <div className={styles.titleContainer}>
                                 <img src={timeIcon} />
-                                <p>Last Edited</p>
+                                <p className={`sans-serif-6`}>Last Edited</p>
                             </div>
-                            <p>(WIP)</p>
+                            <p className={`sans-serif-6`}>(WIP)</p>
                         </div>
                     </div>
                     <div className={styles.textContainer}>
-                        <textarea name="note" defaultValue={props.note.note} />
+                        <textarea className={`sans-serif-5`} name="note" defaultValue={props.note.note} />
                     </div>
                 </div>
             </form>

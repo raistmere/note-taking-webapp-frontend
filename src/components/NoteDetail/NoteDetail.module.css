@@ -14,7 +14,7 @@
 
             display: flex;
             justify-content: space-between;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 0 var(--color-neutral-200);
             padding-bottom: 0.75rem;
 
             > .backLinkContainer {
@@ -26,22 +26,35 @@
                 color: black;
                 border-style: none;
                 background-color: transparent;
+
+                > p {
+
+                    color: var(--color-neutral-600);
+                }
             }
 
             > .buttonContainer {
 
                 display: flex;
                 gap: 1rem;
+                align-items: center;
+                justify-content: center;
 
                 > button {
 
                     border-style: none;
                     background-color: transparent;
+
+                    > img {
+
+                        width: 18px;
+                        height: 18px;
+                    }
                 }
 
                 > .saveButton {
 
-                    color: rgb(50, 100, 250);
+                    color: var(--color-blue-500)
                 }
             }
 
@@ -58,6 +71,11 @@
                 display: flex;
                 flex-direction: column;
                 box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+                > h2 {
+
+                    color: var(--color-neutral-950);
+                }
 
 
                 > .tagContainer {
@@ -86,6 +104,7 @@
                         > p {
 
                             align-self: center;
+                            color: var(--color-neutral-700);
                         }
                     }
 
@@ -93,6 +112,11 @@
 
                         display: flex;
                         flex: 2;
+
+                        > p {
+
+                            color: var(--color-neutral-950);
+                        }
                     }
                 }
 
@@ -119,26 +143,29 @@
                         > p {
 
                             align-self: center;
+                            color: var(--color-neutral-700);
                         }
                     }
 
                     > p {
 
                         align-self: center;
+                        color: var(--color-neutral-700);
                     }
                 }
             }
-
-
-
 
             > .textContainer {
 
                 width: 100%;
                 height: auto;
-                word-wrap: anywhere;
-                white-space: pre-wrap;
 
+                > p {
+
+                    word-wrap: anywhere;
+                    white-space: pre-wrap;
+                    color: var(--color-neutral-800);
+                }
             }
         }
     }
