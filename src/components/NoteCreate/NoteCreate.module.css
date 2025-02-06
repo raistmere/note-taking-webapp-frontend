@@ -29,6 +29,11 @@
                 color: black;
                 border-style: none;
                 background-color: transparent;
+
+                > p {
+
+                    color: var(--color-neutral-600);
+                }
             }
 
             > .buttonContainer {
@@ -40,11 +45,12 @@
 
                     border-style: none;
                     background-color: transparent;
+                    color: var(--color-neutral-600);
                 }
 
                 > .saveButton {
 
-                    color: rgb(50, 100, 250);
+                    color: var(--color-blue-500);
                 }
             }
 
@@ -68,20 +74,19 @@
 
                     border-style: none;
                     padding: 0.5rem 0.5rem 0.5rem 0;
-                    font-size: 1.25rem;
+                    color: var(--color-neutral-950);
 
                     &::placeholder {
 
-                        color: black;
-                        font-weight: bold;
+                        color: var(--color-neutral-950);
                     }
 
                     &:focus {
 
                         padding: 0.5rem;
-                        border-left-style: solid;
-                        border-left-color: rgb(50, 100, 250);
-                        border-left-width: 0.125rem;
+                        border-style: solid;
+                        border-color: var(--color-blue-500);
+                        border-width: 0.125rem;
                         outline-color: transparent;
 
                         &::placeholder {
@@ -119,6 +124,7 @@
                         > p {
 
                             align-self: center;
+                            color: var(--color-neutral-700);
                         }
                     }
 
@@ -126,6 +132,11 @@
 
                         display: flex;
                         flex: 2;
+
+                        > p {
+
+                            color: var(--color-neutral-400);
+                        }
                     }
                 }
 
@@ -152,12 +163,14 @@
                         > p {
 
                             align-self: center;
+                            color: var(--color-neutral-700);
                         }
                     }
 
                     > p {
 
                         align-self: center;
+                        color: var(--color-neutral-400);
                     }
                 }
             }
@@ -173,13 +186,20 @@
                     height: 100%;
                     border-style: none;
                     background-color: transparent;
+                    resize: none;
+                    color: var(--color-neutral-700);
+
+                    &::placeholder {
+
+                        color: var(--color-neutral-700);
+                    }
 
                     &:focus {
 
                         padding: 0.5rem;
-                        border-left-style: solid;
-                        border-left-color: rgb(50, 100, 250);
-                        border-left-width: 0.125rem;
+                        border-style: solid;
+                        border-color: rgb(50, 100, 250);
+                        border-width: 0.125rem;
                         outline-color: transparent;
 
                         &::placeholder {

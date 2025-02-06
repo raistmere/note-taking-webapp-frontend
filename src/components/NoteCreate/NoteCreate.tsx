@@ -20,39 +20,39 @@ const NoteCreate = (props: Props) => {
                 <div className={styles.headerContainer}>
                     <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
                         <img src={leftArrowIcon} alt="Left arrow icon"/>
-                        <p>Go Back</p>
+                        <p className={`sans-serif-5`}>Go Back</p>
                     </button>
                     <div className={styles.buttonContainer}>
-                        <button>
+                        <button className={`sans-serif-5`}>
                             Cancel
                         </button>
-                        <button type={"submit"} className={styles.saveButton}>
+                        <button type={"submit"} className={`${styles.saveButton} sans-serif-5`}>
                             Create Note
                         </button>
                     </div>
                 </div>
                 <div className={styles.contentContainer}>
                     <div className={styles.headerContainer}>
-                        <input type="text" name="title" className={styles.noteTitle} placeholder="Enter a title..."/>
+                        <input type="text" name="title" className={`${styles.noteTitle} sans-serif-2`} placeholder="Enter a title..."/>
                         <div className={styles.tagContainer}>
                             <div className={styles.titleContainer}>
                                 <img src={tagIcon} alt="tag icon" />
-                                <p>Tags</p>
+                                <p className={`sans-serif-6`}>Tags</p>
                             </div>
                             <div className={styles.listContainer}>
-                                <p>(disabled)</p>
+                                <p className={`sans-serif-6`}>(disabled)</p>
                             </div>
                         </div>
                         <div className={styles.timestampContainer}>
                             <div>
                                 <img src={timeIcon} />
-                                <p>Last Edited</p>
+                                <p className={`sans-serif-6`}>Last Edited</p>
                             </div>
-                            <p>(WIP)</p>
+                            <p className={`sans-serif-6`}>(WIP)</p>
                         </div>
                     </div>
                     <div className={styles.textContainer}>
-                        <textarea name="note" placeholder="Start typing your note here..." />
+                        <textarea  className={`sans-serif-6`} name="note" placeholder="Start typing your note here..." />
                     </div>
                 </div>
             </form>

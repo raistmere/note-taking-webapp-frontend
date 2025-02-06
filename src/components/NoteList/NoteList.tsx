@@ -20,13 +20,14 @@ const NoteList = (props: Props) => {
                         {props.noteList.map((note: Note) => (
                             <li key={note.id} className={styles.noteContainer}
                                 onClick={() => props.viewDetail(note.id)}>
-                                <strong>{note.title}</strong>
+                                <p className={`sans-serif-3`}>{note.title}</p>
                                 <div className={styles.tagContainer}>
-                                    <p>Dev</p>
-                                    <p>React</p>
+                                    <p className={`sans-serif-6`}>Dev</p>
+                                    <p className={`sans-serif-6`}>React</p>
                                 </div>
-                                <p>29 Oct 2024</p>
-                                <hr/>
+                                <div className={styles.timestampContainer}>
+                                    <p className={`sans-serif-6`}>29 Oct 2024</p>
+                                </div>
                             </li>))}
                     </ul>
                 )
