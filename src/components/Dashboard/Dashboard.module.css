@@ -1,4 +1,4 @@
-:root {
+* {
 
     margin: 0;
     padding: 0;
@@ -60,12 +60,55 @@
 
             display: flex;
             justify-content: space-between;
-            padding: 1rem 2rem 1rem 2rem;
+            padding: 0.75rem 1rem 0.75rem 1rem;
             box-shadow: 1px 1px 5px 2px var(--color-neutral-200);
 
-            > img {
-                width: 24px;
-                height: 24px;
+            > button {
+
+                width: 64px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-style: none;
+                border-radius: 0.2rem;
+                background-color: transparent;
+
+                > svg {
+
+                    > path {
+
+                        fill: var(--color-neutral-600);
+                    }
+                }
+
+                &.selected {
+
+                    background-color: var(--color-blue-50);
+
+                    > svg {
+
+                        > path {
+
+                            fill: var(--color-blue-500);
+                        }
+                    }
+                }
+
+                &.disabled {
+
+                    background-color: var(--color-neutral-200);
+
+                    > svg {
+
+                        > path {
+
+                            fill: var(--color-neutral-200);
+                            stroke: var(--color-neutral-300);
+                        }
+                    }
+                }
+
             }
         }
     }
