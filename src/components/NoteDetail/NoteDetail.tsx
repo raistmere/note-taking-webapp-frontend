@@ -1,6 +1,8 @@
 import styles from "./NoteDetail.module.css";
-import { Note } from "../Dashboard/Dashboard";
 
+import { useState } from "react";
+
+import { Note } from "../Dashboard/Dashboard";
 import archiveIcon from "../../assets/images/icon-archive.svg";
 import tagIcon from "../../assets/images/icon-tag.svg";
 import leftArrowIcon from "../../assets/images/icon-arrow-left.svg";
@@ -16,8 +18,35 @@ type Props = {
 
 const NoteDetail = (props: Props) => {
 
+    const [deleteModal, setDeleteModal] = useState(false);
+
+    const toggleDeleteModal = () => {
+
+        setDeleteModal(!deleteModal);
+    }
+
     return (
         <div className={styles.noteDetailWrapper}>
+
+            {deleteModal &&
+                (
+                    <div className={styles.modalWrapper}>
+                        <div className={styles.deleteModalContainer}>
+                            <div className={styles.warningContainer}>
+                                <img src={trashIcon}/>
+                                <div className={styles.textContainer}>
+                                    <p className={`${styles.title} sans-serif-3`}>Delete Note</p>
+                                    <p className={`sans-serif-5`}>Are you sure you want to permanently delete this note? This action cannot be undone.</p>
+                                </div>
+                            </div>
+                            <div className={styles.buttonContainer}>
+                                <button type={"button"} className={`${styles.cancelButton} sans-serif-4`} onClick={toggleDeleteModal}>Cancel</button>
+                                <button type={"button"} className={`${styles.deleteButton} sans-serif-4`} onClick={props.deleteNote}>Delete Note</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
             {/* Note Detail Container   */}
             <div className={styles.noteDetailContainer}>
                 {/* Header container for note detail container*/}
@@ -27,7 +56,7 @@ const NoteDetail = (props: Props) => {
                         <p className={`sans-serif-5`}>Go Back</p>
                     </button>
                     <div className={styles.buttonContainer}>
-                        <button type={"button"} onClick={()=> props.deleteNote()}>
+                        <button type={"button"} onClick={toggleDeleteModal}>
                             <img src={trashIcon} alt="Trash delete icon button"/>
                         </button>
                         <button>
