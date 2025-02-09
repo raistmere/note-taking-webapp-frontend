@@ -20,12 +20,9 @@ const NoteCreate = (props: Props) => {
                 <div className={styles.headerContainer}>
                     <button type={"button"} className={styles.backLinkContainer} onClick={() => props.viewList()}>
                         <img src={leftArrowIcon} alt="Left arrow icon"/>
-                        <p className={`sans-serif-5`}>Go Back</p>
+                        <p className={`sans-serif-5`}>Cancel</p>
                     </button>
                     <div className={styles.buttonContainer}>
-                        <button className={`sans-serif-5`}>
-                            Cancel
-                        </button>
                         <button type={"submit"} className={`${styles.saveButton} sans-serif-5`}>
                             Create Note
                         </button>

@@ -6,8 +6,12 @@ import lockIcon from "../../assets/images/icon-lock.svg";
 import logoutIcon from "../../assets/images/icon-logout.svg";
 import {Link} from "react-router";
 
+type Props = {
 
-const Settings = () => {
+    changePassword: () => void;
+}
+
+const Settings = (props: Props) => {
 
     return (
         <div className={styles.settingsWrapper}>
@@ -27,7 +31,7 @@ const Settings = () => {
                             <img src={fontIcon} />
                             <p>Font Theme</p>
                         </button>
-                        <button className={`sans-serif-4`}>
+                        <button className={`sans-serif-4`} onClick={props.changePassword}>
                             <img src={lockIcon} />
                             <p>Change Password</p>
                         </button>

@@ -1,5 +1,5 @@
 import styles from "./Dashboard.module.css";
-import {Link, useNavigate} from "react-router";
+import {useNavigate} from "react-router";
 import {FormEvent, useEffect, useState} from "react";
 
 import NoteList from "../NoteList/NoteList.tsx";
@@ -9,6 +9,7 @@ import NoteCreate from "../NoteCreate/NoteCreate.tsx"
 import logoIcon from "../../assets/images/logo.svg";
 import NoteEdit from "../NoteEdit/NoteEdit.tsx";
 import Settings from "../Settings/Settings.tsx";
+import ChangePassword from "../ChangePassword/ChangePassword.tsx";
 
 
 export enum View {
@@ -17,6 +18,7 @@ export enum View {
     NOTE_CREATE,
     NOTE_EDIT,
     SETTINGS,
+    CHANGEPASSWORD,
 }
 
 export interface Note {
@@ -92,6 +94,11 @@ function Dashboard() {
         changeView(View.NOTE_EDIT);
     }
 
+    const viewChangePassword = () => {
+
+        changeView(View.CHANGEPASSWORD);
+    }
+
 
     const changeView = (view: View) => {
 
@@ -124,7 +131,10 @@ function Dashboard() {
                 return <NoteEdit note={currentNote} viewList={viewNoteList} changeView={changeView} editNote={editNote} />
             case View.SETTINGS:
 
-                return <Settings />;
+                return <Settings  changePassword={viewChangePassword}/>;
+            case View.CHANGEPASSWORD:
+
+                return <ChangePassword />
             default:
 
                 throw new Error(`ERROR: NO VIEW DISPLAY SELECTED`);
