@@ -11,7 +11,12 @@ interface ChangePasswordDto {
     newPassword: string,
 }
 
-const ChangePassword = () => {
+type Props = {
+
+    viewSettings: () => void;
+}
+
+const ChangePassword = (props: Props) => {
 
     const handleChangePassword = (e: FormEvent<HTMLFormElement>) => {
 
@@ -43,12 +48,12 @@ const ChangePassword = () => {
         <div className={`${styles.changePasswordWrapper}`}>
             <div className={`${styles.mainContainer}`}>
                 <div className={`${styles.headerContainer}`}>
-                    <div className={`${styles.backButtonContainer}`}>
+                    <button className={`${styles.backButtonContainer}`} onClick={props.viewSettings}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path fill="#000" fill-rule="evenodd" d="M15.75 20.414 7.336 12l8.414-8.414L17.164 5l-7 7 7 7-1.414 1.414Z" clip-rule="evenodd"/>
                         </svg>
                         <p className={`sans-serif-4`}>Settings</p>
-                    </div>
+                    </button>
                     <p className={`sans-serif-1`}>Change Password</p>
                 </div>
                 <div className={styles.contentWrapper}>

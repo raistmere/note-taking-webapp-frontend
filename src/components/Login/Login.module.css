@@ -44,6 +44,16 @@
                 justify-content: center;
                 text-align: center;
                 gap: 0.5rem;
+
+                > .title {
+
+                    color: var(--color-neutral-950);
+                }
+
+                > p {
+
+                    color: var(--color-neutral-600);
+                }
             }
         }
 
@@ -144,11 +154,12 @@
             > p {
 
                 align-self: center;
+                color: var(--color-neutral-600);
 
                 > a, a:visited {
 
                     text-decoration: none;
-                    color: black;
+                    color: var(--color-neutral-950);
                 }
             }
         }

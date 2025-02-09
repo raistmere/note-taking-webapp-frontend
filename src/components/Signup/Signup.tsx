@@ -1,13 +1,12 @@
 import styles from "./Signup.module.css";
 
-import {Link, useNavigate} from "react-router";
+import { Link } from "react-router";
 import { FormEvent } from "react";
 
 // import images/icons
 import logoIcon from "../../assets/images/logo.svg";
 import infoIcon from "../../assets/images/icon-info.svg";
 import showIcon from "../../assets/images/icon-show-password.svg";
-import hideIcon from "../../assets/images/icon-hide-password.svg";
 
 interface UserDto {
 
@@ -17,7 +16,6 @@ interface UserDto {
 
 const Signup = () => {
 
-    const navigate = useNavigate();
 
     const createUser = async (e: FormEvent<HTMLFormElement>) => {
 
@@ -51,40 +49,40 @@ const Signup = () => {
                 <div className={styles.logoContainer}>
                     <img src={logoIcon}/>
                     <div className={styles.welcomeTextContainer}>
-                        <h1>Create Your Account</h1>
-                        <p>Sign up to start organizing your notes and boost your productivity</p>
+                        <p className={` ${styles.title} sans-serif-1`}>Create Your Account</p>
+                        <p className={`sans-serif-5`}>Sign up to start organizing your notes and boost your productivity</p>
                     </div>
                 </div>
                 <div className={styles.loginWrapper}>
                     <form className={styles.formContainer} onSubmit={createUser}>
                         <div className={styles.inputContainer}>
-                            <label>Email Address</label>
+                            <label className={`sans-serif-4`}>Email Address</label>
                             <input type={"text"} name={"email"} placeholder={"email@example.com"} />
                         </div>
                         <div className={styles.inputContainer}>
-                            <label>Password</label>
+                            <label className={`sans-serif-4`}>Password</label>
                             <div className={styles.passwordContainer}>
                                 <input type={"password"} name={"password"} />
                                 <img src={showIcon}/>
                             </div>
                         </div>
                         <div className={styles.inputContainer}>
-                            <label>Confirm Password</label>
+                            <label className={`sans-serif-4`}>Confirm Password</label>
                             <div className={styles.passwordContainer}>
                                 <input type={"password"} name={"password_confirmation"} />
                                 <img src={showIcon}/>
                             </div>
                             <div className={styles.infoContainer}>
                                 <img src={infoIcon}/>
-                                <p>At least 8 characters</p>
+                                <p className={`sans-serif-6`}>At least 8 characters</p>
                             </div>
                         </div>
-                        <button type="submit">Sign up</button>
+                        <button type="submit" className={`sans-serif-3`}>Sign up</button>
                     </form>
                 </div>
                 <div className={styles.loginContainer}>
                     <hr />
-                    <p> Already have an account? <Link to="/login">Login</Link> </p>
+                    <p className={`sans-serif-5`}> Already have an account? <Link to="/login">Login</Link> </p>
                 </div>
             </div>
         </div>
