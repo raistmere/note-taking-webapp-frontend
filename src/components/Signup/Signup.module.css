@@ -175,3 +175,31 @@
         }
     }
 }
+
+/* TABLET MEDIA QUERY */
+@media screen and (min-width: 522px) {
+
+    .wrapper {
+
+        > .mainContainer {
+
+            max-width: 522px;
+            max-height: 619px;
+            padding: 3rem 2rem 3rem 2rem;
+        }
+    }
+}
+
+/* DESKTOP MEDIA QUERY */
+@media screen and (min-width: 1024px) {
+
+    .wrapper {
+
+        > .mainContainer {
+
+            max-width: 522px;
+            max-height: 623px;
+            padding: 3rem 3rem 3rem 3rem;
+        }
+    }
+}

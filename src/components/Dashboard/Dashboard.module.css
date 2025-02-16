@@ -82,6 +82,11 @@
                     }
                 }
 
+                > p {
+
+                    display: none;
+                }
+
                 &.selected {
 
                     background-color: var(--color-blue-50);
@@ -113,4 +118,93 @@
         }
     }
 
+}
+
+/* TABLET MEDIA QUERY */
+@media screen and (min-width: 522px) {
+
+    .wrapper {
+
+        > .createButtonContainer {
+
+            width: 64px;
+            height: 64px;
+            /*I just made sure to get as close to the footer and add 1rem to the bottom for margin*/
+            bottom: calc(0% + 64px + 3rem);
+            /* Calculate the position on screen: 100% left - width - right margin*/
+            left: calc(100% - 64px - 2.25rem);
+        }
+
+        > .footerContainer {
+
+            >.menuBarContainer {
+
+                padding: 0.75rem 2rem 0.75rem 2rem;
+
+                > button {
+
+                    width: 80px;
+                    height: 50px;
+                    flex-direction: column;
+
+                    > p {
+
+                        display: block;
+                        color: var(--color-neutral-600);
+                    }
+
+                    &.selected {
+
+                        background-color: var(--color-blue-50);
+
+                        > svg {
+
+                            > path {
+
+                                fill: var(--color-blue-500);
+                            }
+                        }
+
+                        > p {
+
+                            color: var(--color-blue-500);
+                        }
+                    }
+
+                    &.disabled {
+
+                        background-color: var(--color-neutral-200);
+
+                        > svg {
+
+                            > path {
+
+                                fill: var(--color-neutral-200);
+                                stroke: var(--color-neutral-300);
+                            }
+                        }
+
+                        > p {
+
+                            color: var(--color-neutral-300)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* DESKTOP MEDIA QUERY */
+@media screen and (min-width: 1024px) {
+
+    .wrapper {
+
+        > .mainContainer {
+
+            max-width: 522px;
+            max-height: 623px;
+            padding: 3rem 3rem 3rem 3rem;
+        }
+    }
 }
